@@ -1,4 +1,5 @@
 package com.thoughtworks.tddintro.factorial;
+import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 
@@ -19,9 +20,10 @@ public class FactorialTests {
 
     private final Factorial factorial = new Factorial();
 
+
     @Test // Make me pass first
     public void shouldReturnOneWhenNumberIsOne(){
-        assertThat(new Factorial().compute(1), is(1));
+        assertThat(factorial.compute(1), is(1));
     }
 
     @Test
