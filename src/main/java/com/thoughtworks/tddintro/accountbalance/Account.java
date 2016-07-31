@@ -6,9 +6,6 @@ package com.thoughtworks.tddintro.accountbalance;
 public class Account {
     public static int balance;
 
-    public Account(int i) {
-        balance = i;
-    }
 
     public int deposit(int i) {
         balance += i;
@@ -16,6 +13,6 @@ public class Account {
     }
 
     public int withdraw(int i) {
-        return -1;
+        return i;
     }
 }
