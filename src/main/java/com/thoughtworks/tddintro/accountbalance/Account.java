@@ -4,7 +4,7 @@ package com.thoughtworks.tddintro.accountbalance;
  * Created by Suya on 2016-07-31.
  */
 public class Account {
-    public int balance;
+    private int balance;
 
 
     public int deposit(int i) {
@@ -13,7 +13,6 @@ public class Account {
     }
 
     public int withdraw(int i) {
-
         if (balance >= i)
             balance -= i;
         return balance;
