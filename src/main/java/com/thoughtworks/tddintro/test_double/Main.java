@@ -6,7 +6,7 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("Greetings!");
 
-        // Can be refactored to...
+        // Can be refactored to... (by highlighting System.out and hitting ctrl+alt+v
         PrintStream printStream = System.out;
         printStream.println("Greetings!");
 
