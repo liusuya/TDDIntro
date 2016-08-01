@@ -16,11 +16,11 @@ import static org.mockito.Mockito.*;
 
 public class LibraryTest {
 
-    List<String> books;
-    PrintStream printStream;
-    DateTimeFormatter dateTimeFormatter;
-    Library library;
-    DateTime time;
+    public List<String> books;
+    public PrintStream printStream;
+    public DateTimeFormatter dateTimeFormatter;
+    public Library library;
+    public DateTime time;
 
     @Before
     public void setUp() {
