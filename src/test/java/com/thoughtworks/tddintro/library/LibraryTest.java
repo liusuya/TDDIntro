@@ -83,7 +83,6 @@ public class LibraryTest {
         // We don't need to mock DateTime because it is a value object
         // We can't mock it because it is a final class
 
-        
         library.welcome(time);
         
         verify(printStream).println(contains("Welcome"));
@@ -93,12 +92,10 @@ public class LibraryTest {
     public void shouldDisplayFormattedTimeWhenFormattedTimeIsAnEmptyString() {
 
         when(dateTimeFormatter.print(time)).thenReturn("");
-
         Library library = new Library(books, printStream, dateTimeFormatter);
-
         library.welcome(time);
 
-        //really sure what we are suppused to verify here...
+        //really sure what we are supposed to verify here...
         verify(printStream).println(contains("The current time is "));
     }
 
@@ -106,12 +103,9 @@ public class LibraryTest {
     public void shouldDisplayFormattedTimeWhenFormattedTimeIsNotEmpty() {
 
         when(dateTimeFormatter.print(time)).thenReturn("2013-04-08 16:33:17");
-
         Library library = new Library(books, printStream, dateTimeFormatter);
-
         library.welcome(time);
-        
-        verify(printStream).println(contains("2013-04-08 16:33:17"));
 
+        verify(printStream).println(contains("2013-04-08 16:33:17"));
     }
 }
