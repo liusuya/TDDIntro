@@ -55,7 +55,15 @@ public class LibraryTest {
 
     @Test
     public void shouldPrintBothBookTitlesWhenThereAreTwoBooks() throws IOException {
-        // implement me
+        String title = "Book Title";
+        String anotherTitle = "Second Book";
+        books.add(title);
+        books.add(anotherTitle);
+        library = new Library(books, printStream, dateTimeFormatter);
+        library.listBooks();
+
+        verify(printStream).println(title);
+        verify(printStream).println(anotherTitle);
     }
 
     /*
