@@ -20,12 +20,14 @@ public class LibraryTest {
     PrintStream printStream;
     DateTimeFormatter dateTimeFormatter;
     Library library;
+    DateTime time;
 
     @Before
     public void setUp() {
         books = new ArrayList<>();
         printStream = mock(PrintStream.class);
         dateTimeFormatter = mock(DateTimeFormatter.class);
+        time = new DateTime();
     }
 
     @Test
@@ -76,14 +78,11 @@ public class LibraryTest {
     // This one is done for you
     @Test
     public void shouldWelcomeUser() {
-        List<String> books = new ArrayList<>();
-        PrintStream printStream = mock(PrintStream.class);
-        DateTimeFormatter dateTimeFormatter = mock(DateTimeFormatter.class);
-        Library library = new Library(books, printStream, dateTimeFormatter);
+        library = new Library(books, printStream, dateTimeFormatter);
 
         // We don't need to mock DateTime because it is a value object
         // We can't mock it because it is a final class
-        DateTime time = new DateTime();
+
         
         library.welcome(time);
         
@@ -92,10 +91,6 @@ public class LibraryTest {
 
     @Test
     public void shouldDisplayFormattedTimeWhenFormattedTimeIsAnEmptyString() {
-        List<String> books = new ArrayList<>();
-        PrintStream printStream = mock(PrintStream.class);
-        DateTime time = new DateTime();
-        DateTimeFormatter dateTimeFormatter = mock(DateTimeFormatter.class);
 
         when(dateTimeFormatter.print(time)).thenReturn("");
 
@@ -103,13 +98,20 @@ public class LibraryTest {
 
         library.welcome(time);
 
-        // add a verify here
+        //really sure what we are suppused to verify here...
+        verify(printStream).println(contains("The current time is "));
     }
 
     @Test
     public void shouldDisplayFormattedTimeWhenFormattedTimeIsNotEmpty() {
 
-        // implement me
-        // then move common test variables into a setup method
+        when(dateTimeFormatter.print(time)).thenReturn("2013-04-08 16:33:17");
+
+        Library library = new Library(books, printStream, dateTimeFormatter);
+
+        library.welcome(time);
+        
+        verify(printStream).println(contains("2013-04-08 16:33:17"));
+
     }
 }
