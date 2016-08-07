@@ -11,23 +11,23 @@ public class AccountTests {
 
     @Before
     public void setUp() {
-        account = new Account();
+        account = new Account(100);
     }
     @Test
     public void shouldIncreaseMyBalanceWhenIDepositMoney(){
-        account.deposit(100);
-        assertThat(account.deposit(50), is(150));
+        account.deposit(50);
+        assertThat(account.retrieveBalance(), is(150));
     }
 
     @Test
     public void shouldDecreaseMyBalanceWhenIWithdrawMoney(){
-        account.deposit(100);
-        assertThat(account.withdraw(50), is(50));
+        account.withdraw(50);
+        assertThat(account.retrieveBalance(), is(50));
     }
 
     @Test
     public void shouldNotDecreaseMyBalanceWhenIWithdrawMoneyAndDoNotHaveEnoughToCoverTheWithdrawal(){
-        account.deposit(50);
-        assertThat((account.withdraw(100)), is(50));
+        account.withdraw(150);
+        assertThat(account.retrieveBalance(), is(100));
     }
 }

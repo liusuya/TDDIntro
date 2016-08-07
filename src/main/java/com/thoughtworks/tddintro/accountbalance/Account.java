@@ -6,15 +6,20 @@ package com.thoughtworks.tddintro.accountbalance;
 public class Account {
     private int balance;
 
-
-    public int deposit(int i) {
-        balance += i;
-        return balance;
+    public Account(int amount){
+        balance = amount;
     }
 
-    public int withdraw(int i) {
-        if (balance >= i)
-            balance -= i;
+    public void deposit(int amount) {
+        balance += amount;
+    }
+
+    public void withdraw(int amount) {
+        if (balance >= amount)
+            balance -= amount;
+    }
+
+    public int retrieveBalance() {
         return balance;
     }
 }
